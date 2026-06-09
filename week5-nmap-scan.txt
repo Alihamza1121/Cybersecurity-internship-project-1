@@ -1,0 +1,49 @@
+# Nmap 7.98 scan initiated Thu May 21 04:44:14 2026 as: /usr/lib/nmap/nmap -sS -O -sV --top-ports 1000 -oN week5-nmap-scan.txt localhost
+Nmap scan report for localhost (127.0.0.1)
+Host is up (0.00025s latency).
+Other addresses for localhost (not scanned): ::1
+Not shown: 998 closed tcp ports (reset)
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 10.2p1 Debian 5 (protocol 2.0)
+3000/tcp open  ppp?
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port3000-TCP:V=7.98%I=7%D=5/21%Time=6A0EC5EB%P=x86_64-pc-linux-gnu%r(Ge
+SF:tRequest,B9E,"HTTP/1\.1\x20200\x20OK\r\nVary:\x20Origin\r\nAccess-Contr
+SF:ol-Allow-Credentials:\x20true\r\nContent-Security-Policy:\x20default-sr
+SF:c\x20'self';style-src\x20'self'\x20'unsafe-inline';script-src\x20'self'
+SF:;img-src\x20'self'\x20data:;frame-ancestors\x20'none';form-action\x20's
+SF:elf';upgrade-insecure-requests;base-uri\x20'self';font-src\x20'self'\x2
+SF:0https:\x20data:;object-src\x20'none';script-src-attr\x20'none'\r\nCros
+SF:s-Origin-Opener-Policy:\x20same-origin\r\nCross-Origin-Resource-Policy:
+SF:\x20same-origin\r\nOrigin-Agent-Cluster:\x20\?1\r\nReferrer-Policy:\x20
+SF:strict-origin-when-cross-origin\r\nStrict-Transport-Security:\x20max-ag
+SF:e=31536000;\x20includeSubDomains;\x20preload\r\nX-Content-Type-Options:
+SF:\x20nosniff\r\nX-DNS-Prefetch-Control:\x20off\r\nX-Download-Options:\x2
+SF:0noopen\r\nX-Frame-Options:\x20SAMEORIGIN\r\nX-Permitted-Cross-Domain-P
+SF:olicies:\x20none\r\nX-XSS-Protection:\x200\r\nContent-Type:\x20text/htm
+SF:l;\x20charset=utf-8\r\nContent-Length:\x202055\r\nETag:\x20W/\"807-PGUh
+SF:VGKSAwPTNKn5s/oMQlocfD4\"\r\nDate:\x20Thu,\x2021\x20May\x202026\x2008:4
+SF:4:26\x20GMT\r\nCo")%r(Help,2F,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nCo
+SF:nnection:\x20close\r\n\r\n")%r(NCP,2F,"HTTP/1\.1\x20400\x20Bad\x20Reque
+SF:st\r\nConnection:\x20close\r\n\r\n")%r(HTTPOptions,145,"HTTP/1\.1\x2020
+SF:4\x20No\x20Content\r\nVary:\x20Origin\r\nAccess-Control-Allow-Credentia
+SF:ls:\x20true\r\nAccess-Control-Allow-Methods:\x20GET,POST,PUT,DELETE,PAT
+SF:CH\r\nAccess-Control-Allow-Headers:\x20Content-Type,Authorization,X-API
+SF:-Key,X-CSRF-Token\r\nAccess-Control-Max-Age:\x2086400\r\nContent-Length
+SF::\x200\r\nDate:\x20Thu,\x2021\x20May\x202026\x2008:44:27\x20GMT\r\nConn
+SF:ection:\x20close\r\n\r\n")%r(RTSPRequest,145,"HTTP/1\.1\x20204\x20No\x2
+SF:0Content\r\nVary:\x20Origin\r\nAccess-Control-Allow-Credentials:\x20tru
+SF:e\r\nAccess-Control-Allow-Methods:\x20GET,POST,PUT,DELETE,PATCH\r\nAcce
+SF:ss-Control-Allow-Headers:\x20Content-Type,Authorization,X-API-Key,X-CSR
+SF:F-Token\r\nAccess-Control-Max-Age:\x2086400\r\nContent-Length:\x200\r\n
+SF:Date:\x20Thu,\x2021\x20May\x202026\x2008:44:27\x20GMT\r\nConnection:\x2
+SF:0close\r\n\r\n");
+Device type: general purpose
+Running: Linux 5.X|6.X
+OS CPE: cpe:/o:linux:linux_kernel:5 cpe:/o:linux:linux_kernel:6
+OS details: Linux 5.0 - 6.2
+Network Distance: 0 hops
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Thu May 21 04:44:28 2026 -- 1 IP address (1 host up) scanned in 14.89 seconds

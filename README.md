@@ -1,174 +1,151 @@
-# Cyber-Security-Internship-2026
-3-Week Cybersecurity Internship Project: Vulnerability Assessment, Exploitation (SQLi, XSS), and Secure Coding Remediation in Node.js.
+# 🔐 Cyber Security Internship 2026
 
-# 🛡️ Cybersecurity Internship Project (Node.js)
+**Author:** Wahab Shahbaz  
+**Program:** Cybersecurity Internship 2026  
+**Repository:** [GitHub - Cyber-Security-Internship-2026](https://github.com/wahabshahbaz/Cyber-Security-Internship-2026)
 
-## 📝 Project Overview
-This repository documents my 3-week Cybersecurity Internship project. The primary objective is to identify, assess, and remediate critical security vulnerabilities in a custom Node.js/Express web application.
+&gt; ⚠️ **Disclaimer:** This project is for **educational purposes only**. All security testing was performed on locally hosted and self-owned environments. Do not use these techniques on systems without explicit authorization.
 
-This project demonstrates the transition from an **Attacker Mindset** (identifying loopholes) to a **Defender Mindset** (implementing secure coding practices).
+---
 
-## 🚀 Week 1: Vulnerability Assessment & Penetration Testing
-During the first week, I deployed an intentionally vulnerable Node.js application and performed manual security testing to understand how real-world exploits work.
+## 📋 Project Overview
 
-### 🔍 Findings & Risk Matrix
-Below is the updated Risk Assessment Matrix after Week 2 remediation.
+This repository contains the complete work for a 6-week Cybersecurity Internship program. The project demonstrates practical implementation of security auditing, vulnerability assessment, penetration testing, and secure deployment practices on a full-stack web application.
 
-| Vulnerability | Tool Used | Likelihood | Impact | Risk Score | Risk Level | Status |
-|---|---|---|---|---|---|---|
-| SQL Injection (Auth Bypass) | Manual | 5 | 5 | 25 | 🔴 Critical | ✅ Patched |
-| Stored XSS (Profile Bio) | Manual | 4 | 4 | 16 | 🔴 Critical | ✅ Patched |
-| Plain-Text Password Storage | Manual (DB inspect) | 4 | 5 | 20 | 🔴 Critical | ✅ Patched |
-| Absence of Anti-CSRF Tokens | OWASP ZAP | 3 | 4 | 12 | 🟠 High | ✅ Patched |
-| CSP Header Not Set | OWASP ZAP | 4 | 2 | 8 | 🟡 Medium | ✅ Patched |
-| CSP: No Fallback Directive | OWASP ZAP | 4 | 2 | 8 | 🟡 Medium | ✅ Patched |
-| Missing Anti-clickjacking Header | OWASP ZAP | 3 | 3 | 9 | 🟡 Medium | ✅ Patched |
-| X-Powered-By Header Leaks Tech Stack | OWASP ZAP | 5 | 1 | 5 | 🔵 Low | ✅ Patched |
-| X-Content-Type-Options Missing | OWASP ZAP | 4 | 1 | 4 | 🔵 Low | ✅ Patched |
-| Authentication Request Exposed | OWASP ZAP | 2 | 1 | 2 | ⚪ Info | ✅ Patched |
+**Application Stack:** Node.js / Express / MongoDB / React  
+**Local URL:** `http://localhost:3000`  
+**Production URL:** `https://cyber-security-internship-2026-production.up.railway.app`
 
-&gt; **Legend:** ✅ Patched | ⚠️ Partially Patched | ❌ Unpatched
+---
 
-### 🔑 Plain-Text Password Storage
-Passwords are stored without hashing in the SQLite database, exposing all user credentials if the database is ever accessed.
+## ✅ Week-wise Progress
 
-![Plain-text passwords in DB](ScreenShots/PlainText_Password_DB.png.png)
+### Week 1-4: Foundation & Vulnerability Assessment
+- Environment setup and secure coding practices
+- Input validation and sanitization implementation
+- Authentication and session management
 
-### 🔬 Exploits Demonstrated
-1. **Authentication Bypass (SQLi):** Successfully bypassed the login mechanism using payload `' OR '1'='1` due to lack of parameterized queries.
-2. ![SQLi Vulnerability Give Access to the Admin Panel](ScreenShots/output%20SQL%20Injection.png)
-3. **Arbitrary Code Execution (Stored XSS):** Injected malicious JavaScript `&lt;script&gt;alert(1)&lt;/script&gt;` into the user profile biography, which executed upon page load due to missing output sanitization.
-4. ![XSS Alert Box shown on browser](ScreenShots/Output%20XSS%20Attack-2.png)
+### Week 5: Web Application Security Testing
+| Tool | Purpose | Status | Evidence |
+|------|---------|--------|----------|
+| Nikto | Web server vulnerability scan | ✅ Complete | `week5-nikto-retest.html` |
+| Burp Suite Repeater | CSRF token bypass testing | ✅ Complete | Week 5 screenshots |
 
-### 🛠️ Tools & Technologies Used
-* **Backend:** Node.js, Express.js
-* **Database:** SQLite (In-Memory)
-* **Testing Techniques:** Manual Penetration Testing, Risk Assessment Matrix
+### Week 6: Advanced Security Audits & Final Deployment
 
-### 📄 Automated Testing (OWASP ZAP)
-As part of the security assessment, an automated scan was performed using OWASP ZAP to identify misconfigurations and missing security headers.
+#### 1. Security Audits & Compliance
+| Tool | Purpose | Status | Evidence |
+|------|---------|--------|----------|
+| **OWASP ZAP** | Full application automated scan | ✅ Complete | `WEEK6_ZAP_Report.html` |
+| **Nikto** | Web server configuration audit | ✅ Complete | `week5-nikto-retest.html` |
+| **Lynis** | System-level security hardening audit | ✅ Complete | `WEEK6_Lynis_Retest.txt` |
 
-![OWASP ZAP Scan Results](ScreenShots/zap-report.png)
+**Lynis Hardening Score:** `70/100` (Baseline: 63 → Remediated: 70)  
+**Key Fixes Applied:**
+- SSH hardening (Port 2222, MaxAuthTries=3, disabled X11/Agent forwarding)
+- GRUB bootloader password protection
+- AppArmor MAC framework enabled
+- PHP `allow_url_fopen` disabled
+- Kernel sysctl hardening applied
+- Malware scanner (rkhunter) installed
 
-* [View Full OWASP ZAP HTML Report](2026-04-19-ZAP-Report-.html)
+#### 2. Secure Deployment Practices
+| Task | Status | Evidence |
+|------|--------|----------|
+| **Docker containerization** | ✅ Complete | `Dockerfile`, `.dockerignore` |
+| **Trivy vulnerability scan** | ✅ Complete | `WEEK6_Trivy_Scan.txt` |
+| **Auto security updates** | ✅ Complete | `unattended-upgrades.conf` |
 
-## 📁 Project Structure
+#### 3. Final Penetration Testing
+| Test | Tool | Status | Evidence |
+|------|------|--------|----------|
+| **Login brute force** | Burp Suite Intruder | ⬜ Pending | Screenshots |
+| **CSRF token bypass** | Burp Suite Repeater | ✅ Complete | Week 5 screenshots |
+| **Business logic test** | Manual / DevTools | ✅ Complete | `business_logic_evidence/` |
 
-| File/Folder | Purpose |
-|---|---|
-| `app.js` | Main Express server with secured routes |
-| `middleware/auth.js` | JWT authentication middleware |
-| `views/index.ejs` | Home page with security badge |
-| `views/login.ejs` | Login form with CSRF protection |
-| `views/signup.ejs` | Signup form with validation hints |
-| `views/profile.ejs` | Protected user dashboard |
-| `ScreenShots/` | Evidence screenshots from vulnerability testing |
-| `ZAP_Report_Week1.html` | Full OWASP ZAP scan report (Week 1 - vulnerable) |
-| `ZAP_Report_Week2.html` | Full OWASP ZAP scan report (Week 2 - remediated) |
-| `Cybersecurity_Report_Week1_Final.pdf` | Formal findings document |
+**Business Logic Findings:**
+- IDOR testing on user profiles via parameter manipulation
+- Admin endpoint access control verification
+- Client-side parameter tampering assessment
+- Workflow bypass attempts on authentication flow
 
-## 💻 Setup Instructions
+#### 4. Deployment Status
+| Environment | URL | Status |
+|-------------|-----|--------|
+| Local Development | `http://localhost:3000` | ✅ Running |
+| **Production** | `https://cyber-security-internship-2026-production.up.railway.app` | ✅ **Live** |
 
-If you want to run this application locally:
+---
 
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/WahabShahbaz551/Cyber-Security-Internship-2026.git
+## 📁 Repository Structure
 
-2. Install dependencies:
+
+---
+
+## 🛡️ Security Measures Implemented
+
+### Application Layer
+- Input validation and parameterized queries
+- Secure session management
+- CSRF protection tokens
+- Security headers implementation
+
+### System Layer
+- Lynis-guided hardening (Score: 70/100)
+- SSH non-default port & key-based restrictions
+- Firewall (iptables/ufw) active
+- Fail2ban intrusion prevention enabled
+- AppArmor mandatory access control enabled
+- Automatic security updates configured
+
+### Deployment Layer
+- Docker containerization with minimal attack surface
+- Trivy container image vulnerability scanning
+- Production deployment on Railway.app with HTTPS
+- Environment variable isolation
+
+---
+
+## 📊 Security Audit Summary
+
+| Category | Status |
+|----------|--------|
+| Web Application Scan (ZAP) | ✅ Completed |
+| Server Configuration (Nikto) | ✅ Completed |
+| System Hardening (Lynis) | ✅ Completed (70/100) |
+| Container Security (Trivy) | ✅ Completed |
+| Manual Penetration Testing | ✅ Partially Completed |
+| Production Deployment | ✅ Live |
+
+---
+
+## 🚀 How to Run Locally
+
 ```bash
-   npm install express ejs body-parser sqlite3 bcryptjs jsonwebtoken validator csurf helmet express-rate-limit cookie-parser
-```
-3. Run the server:
-```bash
-   node app.js
-```
-4. Visit: `http://localhost:3000`
+# 1. Clone the repository
+git clone https://github.com/wahabshahbaz/Cyber-Security-Internship-2026.git
+cd Cyber-Security-Internship-2026
 
+# 2. Install dependencies
+npm install
 
-## ✅ Week 2: Security Implementation (Defender Phase)
+# 3. Start the application
+npm start
 
-In this phase, the application was transformed from a vulnerable state to a secure, production-ready environment.
-
-### 🔐 Implemented Security Features
-
-| Fix | Technology | What It Does |
-|---|---|---|
-| **Password Hashing** | `bcryptjs` (salt rounds: 10) | Scrambles passwords before database storage |
-| **JWT Authentication** | `jsonwebtoken` + HTTP-only cookies | Secure session management with tamper-proof tokens |
-| **Input Validation** | `validator` library | Sanitizes user input to prevent XSS and injection |
-| **CSRF Protection** | `csurf` + `sameSite: 'strict'` cookies | Prevents cross-site request forgery attacks |
-| **Rate Limiting** | `express-rate-limit` | Blocks brute-force login attempts (5 per 15 min) |
-| **Security Headers** | `helmet.js` with custom CSP | Sets 11+ headers including frame-ancestors, form-action |
-| **X-Powered-By** | `app.disable('x-powered-by')` | Hides Express.js fingerprint from headers |
-| **SQL Injection Prevention** | Parameterized queries (`?`) | All DB queries use placeholders |
-
-### 📊 Before vs After
-
-| Aspect | Week 1 (Vulnerable) | Week 2 (Secure) |
-|---|---|---|
-| Password storage | Plain text | bcrypt hashed |
-| Input handling | Raw (dangerous) | Sanitized & validated |
-| Authentication | None | JWT tokens |
-| Session security | None | HTTP-only, SameSite strict |
-| Security headers | Missing | 11+ via Helmet |
-| CSRF protection | None | Tokens + strict cookies |
-| Brute-force | Unlimited attempts | Rate limited (5/15min) |
-| Tech stack leak | X-Powered-By: Express | Hidden |
-
-### 📄 Week 2 Re-Scan (Post-Remediation)
-
-Post-remediation OWASP ZAP scan confirms all critical vulnerabilities resolved.
-
-![Week 2 ZAP Scan](ScreenShots/ZAP_Week2_Summary.png)
-
-[View Full Week 2 ZAP Report](ZAP_Report_Week2.html)
-
-**Final Audit Result:** 0 High-Risk Vulnerabilities (Verified by OWASP ZAP). ✅
+# 4. Access the app
+# Open browser → http://localhost:3000
 
 ---
 
-# 🛡️ Week 3: Penetration Testing & Security Audit Phase
+# Build the image
+docker build -t cyber-security-app .
 
-In this final phase, the role transitioned from a **Defender** to an **Ethical Hacker/Auditor**. The objective was to perform a rigorous security assessment of the application to ensure that the security "hardening" implemented in Week 2 is functioning as expected against real-world scanning tools.
+# Run the container
+docker run -p 3000:3000 cyber-security-app
 
-### 🔍 Network-Level Reconnaissance (Nmap Audit)
-The audit began with a deep-dive network scan using **Nmap** to map the application's attack surface and identify any potential entry points or service misconfigurations.
-
-#### **Step 1: Service & Port Discovery**
-An initial service discovery scan was conducted to identify active listeners. Port `3000` was confirmed as the primary entry point, hosting the Node.js Express environment.
-![Nmap Port Discovery](ScreenShots/Nmap_Scan_Week3.png)
-
-#### **Step 2: Security Controls Verification (Fingerprinting)**
-Using aggressive service fingerprinting, the scan successfully intercepted the server's response headers. This verified that the **Week 2 Security Fixes** (specifically the `Helmet.js` implementation) are correctly configured and visible to external scanners. 
-
-**Verified Defenses:**
-- **Content-Security-Policy (CSP):** Active and restricting unauthorized script execution.
-- **HSTS:** Enforcing secure connections.
-- **X-Frame-Options:** Effectively preventing Clickjacking at the network level.
-
-![Nmap Header Verification](ScreenShots/Nmap_Headers.png)
+# Scan with Trivy
+trivy image cyber-security-app
 
 ---
 
-### 📜 Logging & Monitoring (Winston Logger)
-To ensure accountability and incident response capabilities, I integrated **Winston Logger** into the application. This allows the system to keep a permanent record of all security-sensitive events.
 
-#### **Key Features:**
-- **Audit Trail:** Every login attempt (successful or failed) is logged with a timestamp and IP address.
-- **Persistent Storage:** Logs are saved to a dedicated `security.log` file for forensic analysis.
-- **Machine Readable:** Logs are formatted in **JSON**, making them ready for integration with professional SIEM tools (e.g., Splunk).
-
-#### **Evidence: Security Logs**
-The screenshot below shows the automated logging of login attempts, including the user's IP and activity timestamp.
-![Security Logs Evidence](ScreenShots/Security_Logs_Week3.png)
-
----
-
-### ✅ Final Security Checklist
-A comprehensive security audit was performed against the **OWASP Top 10** standards. You can find the detailed audit report here:
-👉 [View Full Security Checklist](SECURITY_CHECKLIST.md)
-
----
-
-*This project is for educational purposes only. Do not deploy in production.*

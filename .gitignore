@@ -1,3 +1,14 @@
 node_modules/
 database.sqlite
+*.log.env
+node_modules/
+.env
+node_modules/
+security.log
 *.log
+security.log
+*.log
+
+# Log files
+*.log
+security.log
