@@ -2,7 +2,7 @@
 
 **Author:** Ali Hamza  
 **Program:** Cybersecurity Internship 2026  
-**Repository:** [GitHub - Cyber-Security-Internship-2026](https://github.com/wahabshahbaz/Cyber-Security-Internship-2026)
+**Repository:** [GitHub - Cyber-Security-Internship-2026](https://github.com/Alihamza1121/Cybersecurity-internship-project-1)
 
 &gt; ⚠️ **Disclaimer:** This project is for **educational purposes only**. All security testing was performed on locally hosted and self-owned environments. Do not use these techniques on systems without explicit authorization.
 
