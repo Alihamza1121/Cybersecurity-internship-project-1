@@ -1,6 +1,6 @@
 # 🔐 Cyber Security Internship 2026
 
-**Author:** Wahab Shahbaz  
+**Author:** Ali Hamza  
 **Program:** Cybersecurity Internship 2026  
 **Repository:** [GitHub - Cyber-Security-Internship-2026](https://github.com/wahabshahbaz/Cyber-Security-Internship-2026)
 
