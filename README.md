@@ -123,7 +123,7 @@ This repository contains the complete work for a 6-week Cybersecurity Internship
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/wahabshahbaz/Cyber-Security-Internship-2026.git
+git clone https://github.com/Alihamza1121/Cybersecurity-internship-project-1
 cd Cyber-Security-Internship-2026
 
 # 2. Install dependencies
